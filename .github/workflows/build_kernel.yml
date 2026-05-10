@@ -70,7 +70,7 @@ jobs:
     - name: Prepare Kernel Configuration
       working-directory: ./kernel/linux
       run: |
-          curl -sSL https://raw.githubusercontent.com/byJoey/Actions-bbr-v3/main/x86-64.config > .config
+          cp -f $GITHUB_WORKSPACE/configs/x86_64.config .config
           scripts/config --disable SYSTEM_TRUSTED_KEYS
           scripts/config --disable SYSTEM_REVOCATION_KEYS
           # Mitigation for Dirty Frag attack surface.
