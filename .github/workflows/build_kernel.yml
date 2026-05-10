@@ -100,33 +100,51 @@ jobs:
     - name: Generate Release Notes
       run: |
         cat > info.md <<EOF
-        Linux kernel packages with Google BBRv3 integration for the x86_64 architecture.
+        # 🚀 Linux Kernel Packages (BBRv3 Enhanced Build)
 
-        Features:
-        - Integrated Google BBRv3 congestion control
-        - Optimized TCP networking performance
-        - Improved throughput and reduced latency
-        - Custom kernel configuration for enhanced stability
-        - Security hardening adjustments applied
-        - Debian package format for easy installation
+        ## ✨ Overview
+        This is a custom-built Linux kernel release with **Google BBRv3 congestion control** integration, designed for improved network performance, lower latency, and higher throughput on **x86_64 architecture** systems.
 
-        Kernel Version: ${KERNEL_VERSION}
-        Architecture: x86_64
+        ---
 
-        Build Information:
-        - Automatically built via GitHub Actions
-        - Compiled & Optimized by Joey
-        - Generated on Ubuntu Latest Runner
+        ## ⚡ Key Features
+        - 🚄 Integrated **Google BBRv3** congestion control algorithm  
+        - 📈 Optimized TCP networking stack for higher throughput  
+        - ⏱️ Reduced latency under high-load network conditions  
+        - 🧠 Custom kernel configuration tuned for stability & performance  
+        - 🔐 Security hardening enhancements applied  
+        - 🧩 Debian-based `.deb` packaging for seamless installation  
 
-        Included Packages:
-        - linux-image
-        - linux-headers
+        ---
 
-        Installation Example:
+        ## 🧱 Kernel Details
+        - **Kernel Version:** ${KERNEL_VERSION}
+        - **Architecture:** x86_64  
+        - **Packages Included:**
+          - linux-image
+          - linux-headers  
+
+        ---
+
+        ## 🛠️ Build Information
+        - 🤖 Automatically built via GitHub Actions  
+        - 🧑‍💻 Compiled & optimized by Joey  
+        - 🧪 Built on latest Ubuntu runner environment  
+        - 📦 Output packaged in Debian format  
+
+        ---
+
+        ## 📥 Installation
+        ```bash
         sudo dpkg -i *.deb
+        ```
 
-        Notes:
-        Please verify compatibility before production use.
+        ---
+
+        ## ⚠️ Notes
+        - Please verify compatibility before deploying in production environments
+        - This kernel is optimized for performance-focused workloads
+        - Use at your own risk in mission-critical systems
         EOF
 
     - name: Publish GitHub Release
