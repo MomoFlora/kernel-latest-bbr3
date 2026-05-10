@@ -97,37 +97,44 @@ jobs:
         name: deb-${{ env.KERNEL_VERSION }}
         path: ./*.deb
 
+    - name: Generate Release Notes
+      run: |
+        cat > info.md <<EOF
+        Linux kernel packages with Google BBRv3 integration for the x86_64 architecture.
+
+        Features:
+        - Integrated Google BBRv3 congestion control
+        - Optimized TCP networking performance
+        - Improved throughput and reduced latency
+        - Custom kernel configuration for enhanced stability
+        - Security hardening adjustments applied
+        - Debian package format for easy installation
+
+        Kernel Version: ${KERNEL_VERSION}
+        Architecture: x86_64
+
+        Build Information:
+        - Automatically built via GitHub Actions
+        - Compiled & Optimized by Joey
+        - Generated on Ubuntu Latest Runner
+
+        Included Packages:
+        - linux-image
+        - linux-headers
+
+        Installation Example:
+        sudo dpkg -i *.deb
+
+        Notes:
+        Please verify compatibility before production use.
+        EOF
+
     - name: Publish GitHub Release
-      uses: softprops/action-gh-release@v2
+      uses: softprops/action-gh-release@v2.2.1
       with:
         tag_name: ${{ env.KERNEL_VERSION }}
+        body_path: ${{ github.workspace }}/info.md
         files: ./*.deb
-        body: |
-          Linux kernel packages with Google BBRv3 integration for the x86_64 architecture.
-
-          Features:
-          - Integrated Google BBRv3 congestion control
-          - Optimized TCP networking performance
-          - Improved throughput and reduced latency
-          - Custom kernel configuration for enhanced stability
-          - Security hardening adjustments applied
-          - Debian package format for easy installation
-
-          Kernel Version: ${{ env.KERNEL_VERSION }}
-
-          Architecture: x86_64
-
-          Build Information:
-          - Automatically built via GitHub Actions
-          - Compiled & Optimized by Joey
-          - Generated on Ubuntu Latest Runner
-
-          Included Packages:
-          - linux-image
-          - linux-headers
-
-          Installation Example:
-          sudo dpkg -i *.deb
-
-          Notes:
-          Please verify compatibility with your system before deployment in production environments.
+        token: ${{ secrets.GITHUB_TOKEN }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
