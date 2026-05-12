@@ -137,7 +137,7 @@ jobs:
     - name: Publish GitHub Release
       uses: softprops/action-gh-release@v2.2.1
       with:
-        tag_name: ${{ env.KERNEL_VERSION }}
+        tag_name: v${{ env.KERNEL_VERSION }}
         body_path: ${{ github.workspace }}/info.md
         files: ./*.deb
         token: ${{ secrets.GITHUB_TOKEN }}
