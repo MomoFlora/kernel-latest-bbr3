@@ -22,34 +22,6 @@
 
 ---
 
-```bash
- ███╗   ███╗ ██████╗ ███╗   ███╗ ██████╗
- ████╗ ████║██╔═══██╗████╗ ████║██╔═══██╗
- ██╔████╔██║██║   ██║██╔████╔██║██║   ██║
- ██║╚██╔╝██║██║   ██║██║╚██╔╝██║██║   ██║
- ██║ ╚═╝ ██║╚██████╔╝██║ ╚═╝ ██║╚██████╔╝
- ╚═╝     ╚═╝ ╚═════╝ ╚═╝     ╚═╝ ╚═════╝
-         Kernel BBR3 Auto-Installer
-
- Repository: https://github.com/MomoFlora/kernel-latest-bbr3
- Architecture: x86_64 | OS: Debian/Ubuntu
- =========================================================
-
-   当前 TCP 算法 : bbr
-   当前队列调度 : fq_codel
- ---------------------------------------------------------
-   1. 安装 / 更新最新版 BBR v3
-   2. 检测系统 BBR 运行状态
-   3. 启用 BBR + FQ (标准推荐)
-   4. 启用 BBR + FQ_CODEL
-   5. 启用 BBR + FQ_PIE
-   6. 启用 BBR + CAKE
-   7. 卸载定制内核组件
-   8. 退出脚本
- ---------------------------------------------------------
- 请选择操作编号 [1-8]:
-```
-
 ## Overview
 
 **Kernel Latest BBR3** is a professional-grade automated installer that deploys the latest BBR v3 (Bottleneck Bandwidth and Round-trip propagation time) congestion control algorithm on Debian/Ubuntu systems.
